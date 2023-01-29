@@ -84,7 +84,7 @@ chmod 777 dt
 
 nohup ./dt&
 
-2. 安装nginx (包括开发特定端口，秘钥) ok 
+2. 安装nginx (包括开发特定端口，秘钥) ok
 
 3. 开机自启动  ok
 腾讯云登录秘钥管理，可以在管理界面穿件秘钥，管理 SSH 密钥 https://cloud.tencent.com/document/product/213/16691
