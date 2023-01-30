@@ -115,6 +115,7 @@ if __name__ == "__main__":
     # read dir--->file---->read----> write into html
 
     make_print_to_file(path=os.getcwd())
-    linux_tree_list_dir(PATH_INFO)
+    dytree_path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), "..")),"dytree")
+    linux_tree_list_dir(dytree_path)
 
 

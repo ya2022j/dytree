@@ -13,7 +13,7 @@ from pathlib import Path
 
 
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder="dytree")
 app.config.from_object(__name__)
 app.config["JSON_AS_ASCII"] = False
 BASE_DIR = Path(__file__).resolve().parent
@@ -39,8 +39,12 @@ app.jinja_env.variable_end_string = ']}'
 @app.route("/")
 @cross_origin()
 def top_homepage():
-    return render_template("dtree.html")
+    return render_template("dytree.html")
 
+@app.route("/goinfo")
+@cross_origin()
+def goinfo():
+    return render_template("golang_info.html")
 
 
 
