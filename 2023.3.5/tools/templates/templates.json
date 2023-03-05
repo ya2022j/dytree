@@ -1,0 +1,33 @@
+[
+  {
+    "templates": [
+      "13.Go 工程化 - 模糊测试 (实践篇).html",
+      "autoindex.html",
+      "16.Go 高性能 - 截取中文字符串提升 10 倍.html",
+      "3.Go 工程化 - 交叉编译.html",
+      "6.Go 工程化 - 单元测试基础必知必会.html",
+      "4.Go 工程化 - 条件编译.html",
+      "15.Go 工程化 - 压力测试 (一).html",
+      "hp_base.html",
+      "nb_base.html",
+      "templates.json",
+      "1.Go 工程化 - 基础开发配置.html",
+      "7.Go 工程化 - 单元测试覆盖率.html",
+      "20.Go 高性能 - 两种内存大小为 0 的数据类型.html",
+      "8.Go 工程化 - 单元测试基境.html",
+      "12.Go 工程化 - 切片使用技巧.html",
+      "19.Go 工程化 - 错误处理 (一).html",
+      "nb_index.html",
+      "2.Go 工程化 - 命令工具必知必会.html",
+      {
+        "errors": [
+          "500.html",
+          "404.html"
+        ]
+      },
+      "17.Go 工程化 - 面向对象，存在吗.html",
+      "14.Go 工程化 - 模糊测试 (理论篇).html",
+      "9.Go 工程化 - 基准测试数据分析.html"
+    ]
+  }
+]
