@@ -1,0 +1,98 @@
+
+
+1.先查看防火墙是否开启的状态，以及开放端口的情况：
+
+systemctl status firewalld.service(查看防火墙开启还是关闭)
+
+sudo firewall-cmd --list-all(可以查看端口开放情况)
+
+2.使用以下命令来开启或者关闭虚拟机的防火墙
+
+systemctl stop firewalld.service(停止防火墙)
+
+systemctl start firewalld.service(打开防火墙)
+
+disable firewalld.service(关闭开机自启)
+
+3.接下来通过以下命令开放http 8080(80) 端口：
+
+sudo firewall-cmd --add-service=http --permanent (允许http服务)
+
+sudo firewall-cmd --add-port=8080/tcp --permanent(打开8080端口)
+
+注：命令末尾的–permanent表示用久有效，不加这句的话重启后刚才开放的端口就又失效了。
+
+4.最后重启防火墙：
+
+sudo firewall-cmd --reload (查看端口开放情况)
+
+sudo firewall-cmd --list-all
+
+发现 services: 出现 http 服务，ports：出现了8080/80 端口：
+
+5.本机浏览器访问虚拟机ip地址访问成功
+
+
+
+
+然后在nginx的配置文件中，增加一个server的设置 proxy的代理转到8000端口即可。
+
+cd /home/mk_m/
+gunicorn -w 4 -b 127.0.0.1:5000 --access-logfile access5000.log --error-logfile error5000.log mk_svg:app -D
+gunicorn -w 6 -b 127.0.0.1:8080 --access-logfile access8080.log --error-logfile error8080.log mk_app:app -D
+
+用gunicorn 启动两个端口
+
+
+
+然后再在nginx里面设置
+
+
+/usr/local/nginx/conf/nginx.conf
+
+
+
+启动
+/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+
+停止：ps -ef|grep nginx
+然后kill进程号
+
+
+目前看来只能单做两个项目来处理了
+来一个子域名吧，以后说不定还有呢！
+
+
+svg 界面 端口 5000
+api   8001
+展示界面  8000
+
+
+
+
+
+1. 编译项目golang 程序
+
+windows环境下打包编译
+在代码所在目录（./src/d_tree）下使用 go build 命令
+
+set GOARCH=amd64
+set GOOS=linux
+go build 
+
+chmod 777 dt
+
+nohup ./dt&
+
+2. 安装nginx (包括开发特定端口，秘钥)
+
+3. 开机自启动
+腾讯云登录秘钥管理，可以在管理界面穿件秘钥，管理 SSH 密钥 https://cloud.tencent.com/document/product/213/16691
+
+#开启启动设置
+chmod +x /etc/rc.d/rc.local;
+
+echo  'bash /home/d_tree/batch.sh'  >>  /etc/rc.d/rc.local
+
+
+4. 安装golang
